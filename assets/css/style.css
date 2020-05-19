@@ -1,3 +1,7 @@
+html, body {
+    height: 100vh;
+}
+
 header {
     text-align: center;
     height: 80px;
@@ -5,4 +9,23 @@ header {
 
 .jumbotron {
     padding: 20px;
+    margin: 0;
+}
+
+.forecast {
+    background-color: rgba(53, 53, 228, 0.548);
+    height: 180px;
+}
+
+nav, main {
+    padding-top: 40px;
+}
+
+#today {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
 }

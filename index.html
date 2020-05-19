@@ -43,26 +43,65 @@
               <section class="card">
                 <ul class="list-group list-group-flush">
 					<li class="list-group-item">Austin</li>
-					<li class="list-group-item">Austin</li>
-				  	<li class="list-group-item">Austin</li>
                 </ul>
               </section>
             </div>
           </nav>
 
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="d-flex flex-column flex-wrap flex-md-nowrap" id="today">
-			  <h1 class="h2" id="city">City</h1>
-			  <h2 class="h3" id="date">Date</h2>
+            <div class="d-flex flex-column flex-wrap flex-md-nowrap jumbotron" id="today">
+			  <h2 class="h2" id="city">City/Date</h2>
+			  <ul>
+				  <li>Temperature:</li>
+				  <li>Humidity:</li>
+				  <li>Wind:</li>
+				  <li>UV Index:</li>
+			  </ul>
 			  <ul class="conditions"></ul>
 			</div>
+			<h3>5-Day Forecast:</h3>
 			<div class="container" id="forecast">
-				<div class="row">
-					<div class="col-sm-2">Monday</div>
-					<div class="col-sm-2">Tuesday</div>
-					<div class="col-sm-2">Wednesday</div>
-					<div class="col-sm-2">Thursday</div>
-					<div class="col-sm-2">Friday</div>
+				<div class="row justify-content-between">
+					<div class="col-sm-2 card forecast">
+						<h4 id="day1"></h4>
+						<span class="icon"></span>
+						<ul>
+							<li>Temperature:</li>
+							<li>Humidity:</li>
+						</ul>
+					</div>
+					<div class="col-sm-2 card forecast">
+						<h4 id="day2"></h4>
+						<span class="icon"></span>
+						<ul>
+							<li>Temperature:</li>
+							<li>Humidity:</li>
+						</ul>
+					</div>
+					<div class="col-sm-2 card forecast">
+						<h4 id="day3"></h4>
+						<span class="icon"></span>
+						<ul>
+							<li>Temperature:</li>
+							<li>Humidity:</li>
+						</ul>
+					</div>
+					<div class="col-sm-2 card forecast">
+						<h4 id="day4"></h4>
+						<span class="icon"></span>
+						<ul>
+							<li>Temperature:</li>
+							<li>Humidity:</li>
+						</ul>
+					</div>
+					<div class="col-sm-2 card forecast">
+						<h4 id="day5"></h4>
+						<span class="icon"></span>
+						<ul>
+							<li>Temperature:</li>
+							<li>Humidity:</li>
+						</ul>
+					</div>
 				</div>
 			</div>
           </main>
