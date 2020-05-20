@@ -52,10 +52,10 @@
             <div class="d-flex flex-column flex-wrap flex-md-nowrap jumbotron" id="today">
 			  <h2 class="h2" id="city">City/Date</h2>
 			  <ul>
-				  <li>Temperature:</li>
-				  <li>Humidity:</li>
-				  <li>Wind:</li>
-				  <li>UV Index:</li>
+				  <li>Temperature: <span class="temp"></span></li>
+				  <li>Humidity: <span class="humid"></span></li>
+				  <li>Wind: <span class="wind"></span></li>
+				  <li>UV Index: <span class="uv"></span></li>
 			  </ul>
 			  <ul class="conditions"></ul>
 			</div>
@@ -107,7 +107,8 @@
           </main>
         </div>
       </div>
-    </div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
