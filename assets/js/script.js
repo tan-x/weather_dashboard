@@ -1,3 +1,11 @@
+if (localStorage.getItem('recentCity') === null) {
+    getData('Austin');
+} else {
+    $('#initial').text(JSON.parse(localStorage.getItem('recentCity')));
+    var recentCity = JSON.parse(localStorage.getItem('recentCity'));
+    getData(recentCity);
+}
+
 // on search button click, set new var to input value
 // print to new list item and save to localStorage
 
