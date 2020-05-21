@@ -3,13 +3,22 @@
 
 function newCity() {
     var newCity = $('input').val();
-    var newListItem = $(`<li class="list-group-item">${newCity}</li>`);
+    var newListItem = $(`<a class="list-group-item list-group-item-action">${newCity}</a>`);
     if ($('.list-group-item').length === 8) {
         $('.list-group-item').last().remove();
     }
     $('.city-list').prepend(newListItem);
     localStorage.setItem('recentCity', JSON.stringify(newCity));
+
     getData(newCity);
+    // on recent city click, populate data and refresh localStorage
+    $('.list-group-item-action').on('click', function(){
+        var recentCity = $(this).text();
+        localStorage.setItem('recentCity', JSON.stringify(recentCity));
+        getData(recentCity);
+    });
+    // clear input text
+    $('input').val('');
 };
 
 function getData(newCity) {
@@ -39,7 +48,6 @@ function getForecast(lat, lon) {
     }).then(function(response) {
         for (i = 0; i < 5; i++) {
             var tempF = (response.daily[i].temp.day - 273.15) * 1.80 + 32;
-            console.log(response.daily[i].dt)
             var day = moment.unix(response.daily[i].dt).format("MM/DD/YYYY");
             $(`h4[id="day${i}"`).text(day);
             $(`span[data-foreTemp="${i}"`).text(tempF.toFixed(0));
