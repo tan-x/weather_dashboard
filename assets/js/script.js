@@ -1,7 +1,6 @@
 if (localStorage.getItem('recentCity') === null) {
     getData('Austin');
 } else {
-    $('#initial').text(JSON.parse(localStorage.getItem('recentCity')));
     var recentCity = JSON.parse(localStorage.getItem('recentCity'));
     getData(recentCity);
 }
@@ -11,11 +10,6 @@ if (localStorage.getItem('recentCity') === null) {
 
 function newCity() {
     var newCity = $('input').val();
-    var newListItem = $(`<a class="list-group-item list-group-item-action">${newCity}</a>`);
-    if ($('.list-group-item').length === 8) {
-        $('.list-group-item').last().remove();
-    }
-    $('.city-list').prepend(newListItem);
     localStorage.setItem('recentCity', JSON.stringify(newCity));
 
     getData(newCity);
@@ -40,6 +34,11 @@ function getData(newCity) {
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         console.log(response);
+        var newListItem = $(`<a class="list-group-item list-group-item-action">${response.name}</a>`);
+        if ($('.list-group-item').length === 8) {
+            $('.list-group-item').last().remove();
+        }
+    $('.city-list').prepend(newListItem);
         $('#city').text(response.name + ' ' + m);
         $('.temp').html(tempF.toFixed(0) + '&deg;');
         $('.humid').html(response.main.humidity + '%');
