@@ -14,11 +14,7 @@ function newCity() {
 
     getData(newCity);
     // on recent city click, populate data and refresh localStorage
-    $('.list-group-item-action').on('click', function(){
-        var recentCity = $(this).text();
-        localStorage.setItem('recentCity', JSON.stringify(recentCity));
-        getData(recentCity);
-    });
+    
     // clear input text
     $('input').val('');
 };
@@ -38,7 +34,12 @@ function getData(newCity) {
         if ($('.list-group-item').length === 8) {
             $('.list-group-item').last().remove();
         }
-    $('.city-list').prepend(newListItem);
+        $('.list-group-item-action').on('click', function(){
+            var recentCity = $(this).text();
+            localStorage.setItem('recentCity', JSON.stringify(recentCity));
+            getData(recentCity);
+        });
+        $('.city-list').prepend(newListItem);
         $('#city').text(response.name + ' ' + m);
         $('.temp').html(tempF.toFixed(0) + '&deg;');
         $('.humid').html(response.main.humidity + '%');
@@ -59,7 +60,16 @@ function getForecast(lat, lon) {
             $(`h4[id="day${i}"`).text(day);
             $(`span[data-foreTemp="${i}"`).text(tempF.toFixed(0));
             $(`span[data-foreHumi="${i}"`).text(response.daily[i].humidity + '%');
-            $('.uv').html(response.current.uvi);
+            $('#uv').html(response.current.uvi);
+            if (response.current.uvi > 8) {
+                $('#uv').attr('class', 'btn btn-danger');
+            } else if (response.current.uvi < 8 && response.current.uvi > 6) {
+                $('#uv').attr('class', 'btn btn-warning high');
+            } else if (response.current.uvi < 6 && response.current.uvi > 3) {
+                $('#uv').attr('class', 'btn btn-warning');
+            } else if (response.current.uvi < 3) {
+                $('#uv').attr('class', 'btn btn-success');
+            }
         }
     })
 }
