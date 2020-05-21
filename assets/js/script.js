@@ -35,7 +35,7 @@ function getData(newCity) {
         url: queryURL,
         method: 'GET'
     }).then(function(response) {
-        var m = moment().format('MM/DD/YYYY');
+        var m = moment.unix(response.dt).utcOffset(response.timezone / 60).format('MM/DD/YYYY');
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         var lat = response.coord.lat;
         var lon = response.coord.lon;
@@ -56,7 +56,7 @@ function getForecast(lat, lon) {
     }).then(function(response) {
         for (i = 0; i < 5; i++) {
             var tempF = (response.daily[i].temp.day - 273.15) * 1.80 + 32;
-            var day = moment.unix(response.daily[i].dt).format("MM/DD/YYYY");
+            var day = moment.unix(response.daily[i].dt).utcOffset(response.timezone / 60).format("MM/DD/YYYY");
             $(`h4[id="day${i}"`).text(day);
             $(`span[data-foreTemp="${i}"`).text(tempF.toFixed(0));
             $(`span[data-foreHumi="${i}"`).text(response.daily[i].humidity + '%');
