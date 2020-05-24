@@ -31,11 +31,14 @@ function getData(city) {
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         var lat = response.coord.lat;
         var lon = response.coord.lon;
+        var dayTime = (response.dt > response.sys.sunrise && response.dt < response.sys.sunset);
+        console.log(dayTime);
         console.log(response);
         $('#city').text(response.name + ' ' + m);
         $('.temp').html(tempF.toFixed(0) + '&deg;');
         $('.humid').html(response.main.humidity + '%');
         $('.wind').html((response.wind.speed * 2.237).toFixed(0) + ' MPH');
+        conditionImg(response.weather[0].main, dayTime);
         getForecast(lat, lon);
     })
 }
@@ -72,12 +75,41 @@ function newListCity(city) {
         $('.list-group-item').last().remove();
     }
     $('.city-list').prepend(newListItem);
-    $('.list-group-item-action').on('click', function(){
+    $('.list-group-item-action').unbind('click');
+    $('.list-group-item-action').bind('click', function(){
         var recentCity = $(this).text();
         localStorage.setItem('recentCity', JSON.stringify(recentCity));
         getData(recentCity);
     });
 }
+
+function conditionImg(condition, daytime) {
+    console.log(condition, daytime);
+    switch (condition) {
+        case 'Clear':
+            if (daytime === true) {
+                $('#current-cond').html('<img src="./assets/images/day.svg"/>');
+            } else {
+                $('#current-cond').html('<img src="./assets/images/night.svg"/>');
+            }
+            break;
+        case 'Clouds':
+            if (daytime === true) {
+                $('#current-cond').html('<img src="./assets/images/cloudy-day.svg"/>');
+            } else {
+                $('#current-cond').html('<img src="./assets/images/cloudy-night.svg"/>');
+            }
+            break;
+        case 'Rain':
+            $('#current-cond').html('<img src="./assets/images/lightrain.svg"/>');
+            break;
+        case 'Snow':
+            $('#current-cond').html('<img src="./assets/images/snow.svg"/>');
+            break;
+        case 'Thunderstorm':
+            $('#current-cond').html('<img src="./assets/images/lightrain.svg"/>');
+    }
+};
 
 $('#button-city').on('click', function(){
     newCity();
