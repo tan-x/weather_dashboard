@@ -1,5 +1,6 @@
 if (localStorage.getItem('recentCity') === null) {
     getData('Austin');
+    newListCity('Austin');
 } else {
     var recentCity = JSON.parse(localStorage.getItem('recentCity'));
     getData(recentCity);
