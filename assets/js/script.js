@@ -44,7 +44,7 @@ function getData(city) {
 }
 
 function getForecast(lat, lon) {
-    var queryURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=18bbe1392a0905c921468fb3545d2bfb&exclude=minutely,hourly`;
+    var queryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=18bbe1392a0905c921468fb3545d2bfb&exclude=minutely,hourly`;
     $.ajax({
         url: queryURL,
         method: 'GET'
