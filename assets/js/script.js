@@ -47,14 +47,14 @@ function getForecast(lat, lon) {
     var queryURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=18bbe1392a0905c921468fb3545d2bfb&exclude=minutely,hourly`;
     $.ajax({
         url: queryURL,
-        method: 'GET',
+        method: 'GET'
     }).then(function(response) {
         for (i = 0; i < 5; i++) {
             var tempF = (response.daily[i].temp.day - 273.15) * 1.80 + 32;
             var day = moment.unix(response.daily[i].dt).utcOffset(response.timezone / 60).format("MM/DD/YYYY");
             $(`h4[id="day${i}"`).text(day);
-            $(`span[data-foreTemp="${i}"`).text(tempF.toFixed(0));
-            $(`span[data-foreHumi="${i}"`).text(response.daily[i].humidity + '%');
+            $(`span[data-foreTemp="${i}"`).html(tempF.toFixed(0) + '&deg;');
+            $(`span[data-foreHumi="${i}"`).html(response.daily[i].humidity + '%');
             conditionImg(response.daily[i].weather[0].main, true, `day${i}`);
             $('#uv').html(response.current.uvi);
             if (response.current.uvi > 8) {
