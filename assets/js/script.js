@@ -38,7 +38,7 @@ function getData(city) {
         $('.temp').html(tempF.toFixed(0) + '&deg;');
         $('.humid').html(response.main.humidity + '%');
         $('.wind').html((response.wind.speed * 2.237).toFixed(0) + ' MPH');
-        conditionImg(response.weather[0].main, dayTime);
+        conditionImg(response.weather[0].main, dayTime, 'current');
         getForecast(lat, lon);
     })
 }
@@ -55,6 +55,7 @@ function getForecast(lat, lon) {
             $(`h4[id="day${i}"`).text(day);
             $(`span[data-foreTemp="${i}"`).text(tempF.toFixed(0));
             $(`span[data-foreHumi="${i}"`).text(response.daily[i].humidity + '%');
+            conditionImg(response.daily[i].weather[0].main, true, `day${i}`);
             $('#uv').html(response.current.uvi);
             if (response.current.uvi > 8) {
                 $('#uv').attr('class', 'btn btn-danger');
@@ -71,7 +72,7 @@ function getForecast(lat, lon) {
 
 function newListCity(city) {
     var newListItem = $(`<a class="list-group-item list-group-item-action">${city}</a>`);
-    if ($('.list-group-item').length === 8) {
+    if ($('.list-group-item').length === 5) {
         $('.list-group-item').last().remove();
     }
     $('.city-list').prepend(newListItem);
@@ -83,31 +84,30 @@ function newListCity(city) {
     });
 }
 
-function conditionImg(condition, daytime) {
-    console.log(condition, daytime);
+function conditionImg(condition, daytime, id) {
     switch (condition) {
         case 'Clear':
             if (daytime === true) {
-                $('#current-cond').html('<img src="./assets/images/day.svg"/>');
+                $(`#${id}-cond`).html('<img src="./assets/images/day.svg"/>');
             } else {
-                $('#current-cond').html('<img src="./assets/images/night.svg"/>');
+                $(`#${id}-cond`).html('<img src="./assets/images/night.svg"/>');
             }
             break;
         case 'Clouds':
             if (daytime === true) {
-                $('#current-cond').html('<img src="./assets/images/cloudy-day.svg"/>');
+                $(`#${id}-cond`).html('<img src="./assets/images/cloudy-day.svg"/>');
             } else {
-                $('#current-cond').html('<img src="./assets/images/cloudy-night.svg"/>');
+                $(`#${id}-cond`).html('<img src="./assets/images/cloudy-night.svg"/>');
             }
             break;
         case 'Rain':
-            $('#current-cond').html('<img src="./assets/images/lightrain.svg"/>');
+            $(`#${id}-cond`).html('<img src="./assets/images/lightrain.svg"/>');
             break;
         case 'Snow':
-            $('#current-cond').html('<img src="./assets/images/snow.svg"/>');
+            $(`#${id}-cond`).html('<img src="./assets/images/snow.svg"/>');
             break;
         case 'Thunderstorm':
-            $('#current-cond').html('<img src="./assets/images/lightrain.svg"/>');
+            $(`#${id}-cond`).html('<img src="./assets/images/lightrain.svg"/>');
     }
 };
 
