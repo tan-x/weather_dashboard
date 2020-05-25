@@ -9,18 +9,19 @@
       rel="stylesheet"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
-    />
+	/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header class="jumbotron">
-      <h1>Weather Dashboard</h1>
+    <header>
+	  <h1>Weather Dashboard</h1>
     </header>
 
     <div class="dashboard">
       <div class="container-fluid">
         <div class="row">
-          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <nav class="col-md-2 d-md-block sidebar">
             <div class="sidebar-sticky">
               <div class="input-group input-group-sm mb-3">
                 <input
@@ -49,7 +50,7 @@
 
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex flex-column flex-wrap flex-md-nowrap jumbotron" id="today">
-			  <h2 class="h2" id="city">City/Date</h2>
+			  <h2 id="city">City/Date</h2>
 			  <span id="current-cond"></span>
 			  <ul>
 				  <li>Temperature: <span class="temp"></span></li>
@@ -64,7 +65,7 @@
 				<div class="row justify-content-between">
 					<div class="col-sm-2 card forecast">
 						<h4 id="day0"></h4>
-						<span class="icon"></span>
+						<span class="icon" id="day0-cond"></span>
 						<ul>
 							<li>Temperature: <span data-foreTemp="0"></span></li>
 							<li>Humidity: <span data-foreHumi="0"></span></li>
@@ -72,7 +73,7 @@
 					</div>
 					<div class="col-sm-2 card forecast">
 						<h4 id="day1"></h4>
-						<span class="icon"></span>
+						<span class="icon" id="day1-cond"></span>
 						<ul>
 							<li>Temperature: <span data-foreTemp="1"></span></li>
 							<li>Humidity: <span data-foreHumi="1"></span></li>
@@ -80,7 +81,7 @@
 					</div>
 					<div class="col-sm-2 card forecast">
 						<h4 id="day2"></h4>
-						<span class="icon"></span>
+						<span class="icon" id="day2-cond"></span>
 						<ul>
 							<li>Temperature: <span data-foreTemp="2"></span></li>
 							<li>Humidity: <span data-foreHumi="2"></span></li>
@@ -88,7 +89,7 @@
 					</div>
 					<div class="col-sm-2 card forecast">
 						<h4 id="day3"></h4>
-						<span class="icon"></span>
+						<span class="icon" id="day3-cond"></span>
 						<ul>
 							<li>Temperature: <span data-foreTemp="3"></span></li>
 							<li>Humidity: <span data-foreHumi="3"></span></li>
@@ -96,7 +97,7 @@
 					</div>
 					<div class="col-sm-2 card forecast">
 						<h4 id="day4"></h4>
-						<span class="icon"></span>
+						<span class="icon" id="day4-cond"></span>
 						<ul>
 							<li>Temperature: <span data-foreTemp="4"></span></li>
 							<li>Humidity: <span data-foreHumi="4"></span></li>

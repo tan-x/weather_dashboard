@@ -2,25 +2,50 @@ html, body {
     height: 100vh;
 }
 
+body {
+    background-image: url(../images/cloudsBG.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+	font-family: 'Montserrat' !important;
+}
+
 header {
     text-align: center;
-    height: 80px;
+    height: 7vh;
+    min-height: 80px;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
 }
 
 .jumbotron {
     padding: 20px;
     margin: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .7), rgba(255, 255, 255, .2));
 }
 
 .forecast {
-    background-color: rgba(53, 53, 228, 0.548);
-    height: 180px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .7), rgba(255, 255, 255, .2));
+    min-height: fit-content;
     padding: 10px;
     margin-top: 10px;
+    min-width: fit-content;
+}
+
+#forecast {
+    max-width: 90% !important;
 }
 
 nav, main {
-    padding-top: 40px;
+    padding-top: 20px;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, .5);
 }
 
 #today {
@@ -34,4 +59,22 @@ ul {
 
 .high {
     background-color: orange;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+#button-city {
+    color: white;
+}
+
+#uv {
+    padding: .07rem .3rem;
+}
+
+@media (min-width: 768px) {
+    .d-md-block {
+    height: 93vh;
+    }
 }
