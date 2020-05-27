@@ -40,6 +40,7 @@ function getData(city) {
         $('.wind').html((response.wind.speed * 2.237).toFixed(0) + ' MPH');
         conditionImg(response.weather[0].main, dayTime, 'current');
         getForecast(lat, lon);
+        animate();
     })
 }
 
@@ -121,3 +122,9 @@ $('.city-input').keypress(function(event){
         newCity();
     }
 });
+
+function animate() {    
+    $('.jumbotron').animate({opacity:'1'}, 400, () => {
+        $('#forecast').animate({opacity:'1'}, 400);
+    });
+}
