@@ -7,16 +7,23 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-color: rgba(255, 255, 255, .4);
     top: 0;
 	font-family: 'Montserrat' !important;
 }
 
 header {
     text-align: center;
-    height: 7vh;
-    min-height: 80px;
+    white-space: nowrap;
+    height: fit-content;
+    min-height: 50px;
     background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .8));
-    padding: 20px;
+    padding: 15px 15px 10px;
+}
+
+h1 {
+    margin: 5px 2px;
+    font-size: 8vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -26,6 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 .jumbotron {
     padding: 20px;
     margin: 0;
+    border: 1px whitesmoke outset;
     background: linear-gradient(45deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .7), rgba(255, 255, 255, .2));
 }
 
@@ -35,6 +43,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;
     margin-top: 10px;
     min-width: fit-content;
+    border: 1px whitesmoke outset;
 }
 
 #forecast {
@@ -67,7 +76,12 @@ ul {
 }
 
 #button-city {
-    color: white;
+    color: black;
+    background: linear-gradient(0deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .8), rgba(255, 255, 255, .2));
+}
+
+#button-city:hover {
+    background: linear-gradient(0deg, rgba(209, 222, 248, 0.2), rgba(255, 255, 255, 0.8), rgba(209, 222, 248, .2));
 }
 
 #uv {
@@ -77,5 +91,11 @@ ul {
 @media (min-width: 768px) {
     .d-md-block {
     height: 93vh;
+    }
+}
+
+@media (min-width: 500px) {
+    h1 {
+        font-size: 2.5rem;
     }
 }
