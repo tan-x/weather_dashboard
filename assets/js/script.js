@@ -50,13 +50,13 @@ function getForecast(lat, lon) {
         url: queryURL,
         method: 'GET'
     }).then(function(response) {
-        for (i = 0; i < 5; i++) {
+        for (i = 1; i < 6; i++) {
             var tempF = (response.daily[i].temp.day - 273.15) * 1.80 + 32;
             var day = moment.unix(response.daily[i].dt).utcOffset(response.timezone / 60).format("MM/DD/YYYY");
-            $(`h4[id="day${i}"`).text(day);
-            $(`span[data-foreTemp="${i}"`).html(tempF.toFixed(0) + '&deg;');
-            $(`span[data-foreHumi="${i}"`).html(response.daily[i].humidity + '%');
-            conditionImg(response.daily[i].weather[0].main, true, `day${i}`);
+            $(`h4[id="day${i - 1}"`).text(day);
+            $(`span[data-foreTemp="${i - 1}"`).html(tempF.toFixed(0) + '&deg;');
+            $(`span[data-foreHumi="${i - 1}"`).html(response.daily[i].humidity + '%');
+            conditionImg(response.daily[i].weather[0].main, true, `day${i - 1}`);
             $('#uv').html(response.current.uvi);
             if (response.current.uvi > 8) {
                 $('#uv').attr('class', 'btn btn-danger');
