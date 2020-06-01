@@ -1,103 +1,123 @@
-html, body {
-    height: 100vh;
+html,
+body {
+	height: 100vh;
 }
 
 body {
-    background-image: url(../images/cloudsBG.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-color: rgba(255, 255, 255, .4);
-    top: 0;
+	background-image: url(../images/cloudsBG.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: rgba(255, 255, 255, 0.4);
+	top: 0;
 	font-family: 'Montserrat' !important;
 }
 
 header {
-    text-align: center;
-    white-space: nowrap;
-    height: fit-content;
-    min-height: 50px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .8));
-    padding: 15px 15px 10px;
+	text-align: center;
+	white-space: nowrap;
+	height: fit-content;
+	min-height: 50px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+	padding: 15px 15px 10px;
 }
 
 h1 {
-    margin: 5px 2px;
-    font-size: 8vw;
+	margin: 5px 2px;
+	font-size: 8vw;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
 }
 
 .jumbotron {
-    opacity: 0;
-    padding: 20px;
-    margin: 0;
-    border: 1px whitesmoke outset;
-    background: linear-gradient(45deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .7), rgba(255, 255, 255, .2));
+	opacity: 0;
+	padding: 20px;
+	margin: 0;
+	border: 1px whitesmoke outset;
+	background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
 }
 
 .forecast {
-    background: linear-gradient(135deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .7), rgba(255, 255, 255, .2));
-    min-height: fit-content;
-    padding: 10px;
-    margin-top: 10px;
-    min-width: fit-content;
-    border: 1px whitesmoke outset;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2));
+	min-height: fit-content;
+	padding: 10px;
+	margin-top: 10px;
+	min-width: fit-content;
+	border: 1px whitesmoke outset;
+}
+
+.sidebar-sticky {
+	display: flex;
+	flex-direction: column;
 }
 
 #forecast {
-    max-width: 90% !important;
-    opacity: 0;
+	max-width: 90% !important;
+	opacity: 0;
 }
 
-nav, main {
-    padding-top: 20px;
+nav,
+main {
+	padding-top: 20px;
 }
 
 nav {
-    background: linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .1), rgba(255, 255, 255, .0));
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
 #today {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 ul {
-    list-style: none;
-    padding-left: 0;
+	list-style: none;
+	padding-left: 0;
 }
 
 .high {
-    background-color: orange;
+	background-color: orange;
 }
 
 .card {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
+	margin-top: 8px;
 }
 
 #button-city {
-    color: black;
-    background: linear-gradient(0deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .8), rgba(255, 255, 255, .2));
+	color: black;
+	background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
 }
 
 #button-city:hover {
-    background: linear-gradient(0deg, rgba(209, 222, 248, 0.2), rgba(255, 255, 255, 0.8), rgba(209, 222, 248, .2));
+	background: linear-gradient(0deg, rgba(209, 222, 248, 0.2), rgba(255, 255, 255, 0.8), rgba(209, 222, 248, 0.2));
 }
 
 #uv {
-    padding: .07rem .3rem;
+	padding: 0.07rem 0.3rem;
+}
+
+#error-message {
+	color: rgb(189, 14, 8);
+	align-self: center;
+	font-weight: bold;
+	text-shadow: 0 0 2px rgb(110, 110, 110);
 }
 
 @media (min-width: 768px) {
-    .d-md-block {
-    height: 93vh;
-    }
+	.d-md-block {
+		height: 93vh;
+	}
 }
 
 @media (min-width: 500px) {
-    h1 {
-        font-size: 2.5rem;
-    }
+	h1 {
+		font-size: 2.5rem;
+	}
 }
