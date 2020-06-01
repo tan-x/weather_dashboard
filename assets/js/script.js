@@ -11,11 +11,7 @@ if (localStorage.getItem('recentCity') === null) {
 // prevents user inputing incorrect casing
 function newCity() {
 	var newCity = $('input').val();
-	newCity = newCity
-		.toLowerCase()
-		.split(' ')
-		.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-		.join(' ');
+	
 	getData(newCity);
 	$('input').val('');
 }
@@ -29,7 +25,7 @@ function getData(city) {
         // if AJAX return is successfull, make new list item, print weather, and run additional functions for images and forecast
 		success: function (response) {
 			$('#error-message').text('');
-			newListCity(city);
+			newListCity(response.name);
 			localStorage.setItem('recentCity', JSON.stringify(city));
 			var m = moment
 				.unix(response.dt)
@@ -111,7 +107,7 @@ function getForecast(lat, lon) {
 // add a list item to recent search list
 function newListCity(city) {
 	var newListItem = $(`<a class="list-group-item list-group-item-action">${city}</a>`);
-	if ($('.list-group-item').length === 5) {
+	if ($('.list-group-item').length === 4) {
 		$('.list-group-item').last().remove();
 	}
 	$('.city-list').prepend(newListItem);

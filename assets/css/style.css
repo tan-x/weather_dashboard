@@ -58,6 +58,10 @@ h6 {
 	flex-direction: column;
 }
 
+.list-group-item {
+    padding: .45rem 1.25rem;
+}
+
 #forecast {
 	max-width: 90% !important;
 	opacity: 0;
@@ -113,6 +117,10 @@ ul {
 	align-self: center;
 	font-weight: bold;
 	text-shadow: 0 0 5px rgb(219, 219, 219);
+}
+
+#fiveDay {
+	text-shadow: 0 0 10px rgb(233, 233, 233);
 }
 
 @media (min-width: 768px) {
