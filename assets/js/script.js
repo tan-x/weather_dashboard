@@ -11,7 +11,11 @@ if (localStorage.getItem('recentCity') === null) {
 // prevents user inputing incorrect casing
 function newCity() {
 	var newCity = $('input').val();
-	
+	// newCity = newCity
+	// 	.toLowerCase()
+	// 	.split(' ')
+	// 	.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+	// 	.join(' ');
 	getData(newCity);
 	$('input').val('');
 }
