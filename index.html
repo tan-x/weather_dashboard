@@ -1,116 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Dashboard</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-	/>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-	  <h1>Weather Dashboard</h1>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather Dashboard</title>
+		<link
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			crossorigin="anonymous"
+		/>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Weather Dashboard</h1>
+		</header>
 
-    <div class="dashboard">
-      <div class="container-fluid">
-        <div class="row">
-          <nav class="col-md-2 d-md-block sidebar">
-            <div class="sidebar-sticky">
-              <div class="input-group input-group-sm mb-3">
-                <input
-                  type="text"
-                  class="form-control city-input"
-                  placeholder="City"
-                  aria-label="City"
-                  aria-describedby="button-addon2"
-                />
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-secondary"
-                    type="button"
-                    id="button-city"
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-              <section class="card">
-                <ul class="list-group list-group-flush city-list">
-                </ul>
-              </section>
-            </div>
-          </nav>
+		<div class="dashboard">
+			<div class="container-fluid">
+				<div class="row">
+					<nav class="col-md-2 d-md-block sidebar">
+						<div class="sidebar-sticky">
+							<div class="input-group input-group-sm mb-1">
+								<input
+									type="text"
+									class="form-control city-input"
+									placeholder="City"
+									aria-label="City"
+									aria-describedby="button-addon2"
+								/>
+								<div class="input-group-append">
+									<button class="btn btn-outline-secondary" type="button" id="button-city">
+										Search
+									</button>
+								</div>
+							</div>
+							<span id="error-message"></span>
+							<section class="card">
+								<ul class="list-group list-group-flush city-list"></ul>
+							</section>
+						</div>
+					</nav>
 
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="d-flex flex-column flex-wrap flex-md-nowrap jumbotron" id="today">
-			  <h2 id="city">City/Date</h2>
-			  <span id="current-cond"></span>
-			  <ul>
-				  <li>Temperature: <span class="temp"></span></li>
-				  <li>Humidity: <span class="humid"></span></li>
-				  <li>Wind: <span class="wind"></span></li>
-				  <li>UV Index: <span id="uv"></span></li>
-			  </ul>
-			  <ul class="conditions"></ul>
-			</div>
-			<div class="container" id="forecast">
-				<h3>5-Day Forecast:</h3>
-				<div class="row justify-content-between">
-					<div class="col-sm-2 card forecast">
-						<h4 id="day0"></h4>
-						<span class="icon" id="day0-cond"></span>
-						<ul>
-							<li>Temperature: <span data-foreTemp="0"></span></li>
-							<li>Humidity: <span data-foreHumi="0"></span></li>
-						</ul>
-					</div>
-					<div class="col-sm-2 card forecast">
-						<h4 id="day1"></h4>
-						<span class="icon" id="day1-cond"></span>
-						<ul>
-							<li>Temperature: <span data-foreTemp="1"></span></li>
-							<li>Humidity: <span data-foreHumi="1"></span></li>
-						</ul>
-					</div>
-					<div class="col-sm-2 card forecast">
-						<h4 id="day2"></h4>
-						<span class="icon" id="day2-cond"></span>
-						<ul>
-							<li>Temperature: <span data-foreTemp="2"></span></li>
-							<li>Humidity: <span data-foreHumi="2"></span></li>
-						</ul>
-					</div>
-					<div class="col-sm-2 card forecast">
-						<h4 id="day3"></h4>
-						<span class="icon" id="day3-cond"></span>
-						<ul>
-							<li>Temperature: <span data-foreTemp="3"></span></li>
-							<li>Humidity: <span data-foreHumi="3"></span></li>
-						</ul>
-					</div>
-					<div class="col-sm-2 card forecast">
-						<h4 id="day4"></h4>
-						<span class="icon" id="day4-cond"></span>
-						<ul>
-							<li>Temperature: <span data-foreTemp="4"></span></li>
-							<li>Humidity: <span data-foreHumi="4"></span></li>
-						</ul>
-					</div>
+					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+						<div class="d-flex flex-column flex-wrap flex-md-nowrap jumbotron" id="today">
+							<h2 id="city">City/Date</h2>
+							<span id="current-cond"></span>
+							<ul>
+								<li>Temperature: <span class="temp"></span></li>
+								<li>Humidity: <span class="humid"></span></li>
+								<li>Wind: <span class="wind"></span></li>
+								<li>UV Index: <span id="uv"></span></li>
+							</ul>
+							<ul class="conditions"></ul>
+						</div>
+						<div class="container" id="forecast">
+							<h3>5-Day Forecast:</h3>
+							<div class="row justify-content-between">
+								<div class="col-sm-2 card forecast">
+									<h4 id="day0"></h4>
+									<span class="icon" id="day0-cond"></span>
+									<ul>
+										<li>Temperature: <span data-foreTemp="0"></span></li>
+										<li>Humidity: <span data-foreHumi="0"></span></li>
+									</ul>
+								</div>
+								<div class="col-sm-2 card forecast">
+									<h4 id="day1"></h4>
+									<span class="icon" id="day1-cond"></span>
+									<ul>
+										<li>Temperature: <span data-foreTemp="1"></span></li>
+										<li>Humidity: <span data-foreHumi="1"></span></li>
+									</ul>
+								</div>
+								<div class="col-sm-2 card forecast">
+									<h4 id="day2"></h4>
+									<span class="icon" id="day2-cond"></span>
+									<ul>
+										<li>Temperature: <span data-foreTemp="2"></span></li>
+										<li>Humidity: <span data-foreHumi="2"></span></li>
+									</ul>
+								</div>
+								<div class="col-sm-2 card forecast">
+									<h4 id="day3"></h4>
+									<span class="icon" id="day3-cond"></span>
+									<ul>
+										<li>Temperature: <span data-foreTemp="3"></span></li>
+										<li>Humidity: <span data-foreHumi="3"></span></li>
+									</ul>
+								</div>
+								<div class="col-sm-2 card forecast">
+									<h4 id="day4"></h4>
+									<span class="icon" id="day4-cond"></span>
+									<ul>
+										<li>Temperature: <span data-foreTemp="4"></span></li>
+										<li>Humidity: <span data-foreHumi="4"></span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</main>
 				</div>
 			</div>
-          </main>
-        </div>
-      </div>
-	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="assets/js/script.js"></script>
-  </body>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="assets/js/script.js"></script>
+	</body>
 </html>
