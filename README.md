@@ -5,3 +5,7 @@ User inputs a city and receives current weather and a 5 day forecast matching th
 - Javascript
 - jQuery
 - HTML & CSS
+## Screenshots:
+<p align="center"><img src="assets/images/webSS.PNG" width="700px" align="center"/></p>
+
+<p align="center"><img src="assets/images/mobileSS.PNG" height="500px"/></p>
