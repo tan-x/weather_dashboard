@@ -7,6 +7,8 @@ if (localStorage.getItem('recentCity') === null) {
 	getData(recentCity);
 }
 
+let cityArray = [];
+
 // take user input, make all lower case, seperate by spaces, and make the first letter of each word in string toUpperCase
 // prevents user inputing incorrect casing
 function newCity() {
@@ -29,7 +31,14 @@ function getData(city) {
         // if AJAX return is successfull, make new list item, print weather, and run additional functions for images and forecast
 		success: function (response) {
 			$('#error-message').text('');
-			newListCity(response.name);
+			if (!cityArray.includes(response.name)) {
+				cityArray.push(response.name);
+				if (cityArray.length === 5) {
+					cityArray.shift();
+				}
+				newListCity(response.name);
+			};
+			console.log(cityArray);
 			localStorage.setItem('recentCity', JSON.stringify(city));
 			var m = moment
 				.unix(response.dt)
