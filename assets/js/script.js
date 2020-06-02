@@ -46,6 +46,7 @@ function getData(city) {
 			$('.humid').html(response.main.humidity + '%');
 			$('.wind').html((response.wind.speed * 2.237).toFixed(0) + ' MPH');
 			conditionImg(response.weather[0].main, dayTime, 'current');
+			conditionBack(response.weather[0].main, dayTime);
 			getForecast(lat, lon);
 			animate();
         },
@@ -147,6 +148,33 @@ function conditionImg(condition, daytime, id) {
 			break;
 		case 'Thunderstorm':
 			$(`#${id}-cond`).html('<img src="./assets/images/lightrain.svg"/>');
+	}
+}
+// switch statement for changing background image based on current condition
+function conditionBack(condition, daytime) {
+	switch (condition) {
+		case 'Clear':
+			if (daytime === true) {
+				$('body').css({ "background-image": "url(./assets/images/cloudsBG.jpg)"});
+			} else {
+				$('body').css({ "background-image": "url(./assets/images/nightclearBG.jpg)"});
+			}
+			break;
+		case 'Clouds':
+			if (daytime === true) {
+				$('body').css({ "background-image": "url(./assets/images/cloudydayBG.jpeg)"});
+			} else {
+				$('body').css({ "background-image": "url(./assets/images/cloudynightBG.jpg)"});
+			}
+			break;
+		case 'Rain':
+			$('body').css({ "background-image": "url(./assets/images/rainyBG.jpg)"});
+			break;
+		case 'Snow':
+			$('body').css({ "background-image": "url(./assets/images/snowyBG.jpg)"});
+			break;
+		case 'Thunderstorm':
+			$('body').css({ "background-image": "url(./assets/images/thunderBG.jpg)"});
 	}
 }
 
