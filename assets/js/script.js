@@ -171,7 +171,7 @@ function conditionBack(condition, daytime) {
 			break;
 		case 'Clouds':
 			if (daytime === true) {
-				$('body').css({ "background-image": "url(./assets/images/cloudydayBG.jpeg)"});
+				$('body').css({ "background-image": "url(./assets/images/cloudydayBG.jpg)"});
 			} else {
 				$('body').css({ "background-image": "url(./assets/images/cloudynightBG.jpg)"});
 			}
